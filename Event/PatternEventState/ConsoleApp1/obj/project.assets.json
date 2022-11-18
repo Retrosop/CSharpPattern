@@ -14,11 +14,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Мой Си\\CSharpPattern\\PatternEventState\\ConsoleApp1\\ConsoleApp1.csproj",
+      "projectUniqueName": "C:\\Мой Си\\CSharpPattern\\Event\\PatternEventState\\ConsoleApp1\\ConsoleApp1.csproj",
       "projectName": "ConsoleApp1",
-      "projectPath": "C:\\Мой Си\\CSharpPattern\\PatternEventState\\ConsoleApp1\\ConsoleApp1.csproj",
+      "projectPath": "C:\\Мой Си\\CSharpPattern\\Event\\PatternEventState\\ConsoleApp1\\ConsoleApp1.csproj",
       "packagesPath": "C:\\Users\\Vladimir\\.nuget\\packages\\",
-      "outputPath": "C:\\Мой Си\\CSharpPattern\\PatternEventState\\ConsoleApp1\\obj\\",
+      "outputPath": "C:\\Мой Си\\CSharpPattern\\Event\\PatternEventState\\ConsoleApp1\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
