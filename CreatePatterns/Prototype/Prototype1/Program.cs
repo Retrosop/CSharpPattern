@@ -12,6 +12,11 @@
 		figure.GetInfo();
 		clonedFigure.GetInfo();
 
+		figure = new Square(10);
+		clonedFigure = figure.Clone();
+		figure.GetInfo();
+		clonedFigure.GetInfo();
+
 		Console.Read();
 	}
 }

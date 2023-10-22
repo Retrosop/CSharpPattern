@@ -4,6 +4,24 @@
 	void GetInfo();
 }
 
+class Square : IFigure
+{
+	int side;
+	public Square(int s)
+	{
+		side = s;
+	}
+
+	public IFigure Clone()
+	{
+		return new Square(this.side);
+	}
+	public void GetInfo()
+	{
+		Console.WriteLine("Сторона квадрата длиной {0}", side);
+	}
+}
+
 class Rectangle : IFigure
 {
 	int width;
