@@ -66,3 +66,6 @@
 /EventPatterns/Observer/.vs
 /EventPatterns/Observer/bin
 /EventPatterns/Observer/obj
+/EventPatterns/Strategy/obj
+/EventPatterns/Strategy/.vs
+/EventPatterns/Strategy/bin
