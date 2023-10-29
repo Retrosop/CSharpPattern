@@ -2,17 +2,23 @@
 {
 	static void Main(string[] args)
 	{
-		// содаем объект пекаря
-		Baker baker = new Baker();
-		// создаем билдер для ржаного хлеба
-		BreadBuilder builder = new RyeBreadBuilder();
-		// выпекаем
-		Bread ryeBread = baker.Bake(builder);
-		Console.WriteLine(ryeBread.ToString());
-		// оздаем билдер для пшеничного хлеба
-		builder = new WheatBreadBuilder();
-		Bread wheatBread = baker.Bake(builder);
-		Console.WriteLine(wheatBread.ToString());
+		
+		Baker bakerController = new Baker();
+		// Создать письмо на отправку заказа
+		MailBuilder builderPut = new PutMailBuilder();
+		Mail putMail = bakerController.Bake(builderPut);
+		Console.WriteLine(putMail.ToString());
+
+		// Создать письмо получения товара на склад
+		MailBuilder builderGet = new GetMailBuilder();
+		Mail getMail = bakerController.Bake(builderGet);
+		Console.WriteLine(getMail.ToString());
+
+
+		// Создаем письмо реклама
+		MailBuilder builderSpam = new SpamMailBuilder();
+		Mail spamMail = bakerController.Bake(builderSpam);
+		Console.WriteLine(spamMail.ToString());
 
 		Console.Read();
 	}

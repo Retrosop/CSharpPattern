@@ -1,99 +1,118 @@
-﻿//мука
+﻿
 using System.Text;
 
-class Flour
+class Title
 {
 	// какого сорта мука
-	public string Sort { get; set; }
-}
-// соль
-class Salt
-{ }
-// пищевые добавки
-class Additives
-{
-	public string Name { get; set; }
+	public string titleName { get; set; }
 }
 
-class Bread
+class Source
 {
-	// мука
-	public Flour Flour { get; set; }
+	public string sourceValue { get; set; }
+}
+
+class Context
+{
+	public string contextValue { get; set; }
+}
+
+class Mail
+{
+	public Title title { get; set; }
 	// соль
-	public Salt Salt { get; set; }
-	// пищевые добавки
-	public Additives Additives { get; set; }
+	public Source source { get; set; }
+
+	public Context context { get; set; }
 	public override string ToString()
 	{
 		StringBuilder sb = new StringBuilder();
 
-		if (Flour != null)
-			sb.Append(Flour.Sort + "\n");
-		if (Salt != null)
-			sb.Append("Соль \n");
-		if (Additives != null)
-			sb.Append("Добавки: " + Additives.Name + " \n");
+		if (title != null)
+			sb.Append("Заголовок письма: "+title.titleName + "\n");
+		if (source != null)
+			sb.Append("Кому отправляем: "+source.sourceValue);
+		if (context != null)
+			sb.Append("Содержание: " + context.contextValue + " \n");
 		return sb.ToString();
 	}
 }
 
 // абстрактный класс строителя
-abstract class BreadBuilder
+abstract class MailBuilder
 {
-	public Bread Bread { get; private set; }
-	public void CreateBread()
+	public Mail mail { get; private set; }
+	public void CreateMail()
 	{
-		Bread = new Bread();
+		mail = new Mail();
 	}
-	public abstract void SetFlour();
-	public abstract void SetSalt();
-	public abstract void SetAdditives();
+	public abstract void SetTitle();
+	public abstract void SetSource();
+	public abstract void SetContext();
 }
-// пекарь
+
 class Baker
 {
-	public Bread Bake(BreadBuilder breadBuilder)
+	public Mail Bake(MailBuilder MailBuilder)
 	{
-		breadBuilder.CreateBread();
-		breadBuilder.SetFlour();
-		breadBuilder.SetSalt();
-		breadBuilder.SetAdditives();
-		return breadBuilder.Bread;
+		MailBuilder.CreateMail();
+		MailBuilder.SetTitle();
+		MailBuilder.SetSource();
+		MailBuilder.SetContext();
+		return MailBuilder.mail;
 	}
 }
-// строитель для ржаного хлеба
-class RyeBreadBuilder : BreadBuilder
+
+class PutMailBuilder : MailBuilder
 {
-	public override void SetFlour()
+	public override void SetTitle()
 	{
-		this.Bread.Flour = new Flour { Sort = "Ржаная мука 1 сорт" };
+		this.mail.title = new Title { titleName = "Заказ сформтироват" };
 	}
 
-	public override void SetSalt()
+	public override void SetSource()
 	{
-		this.Bread.Salt = new Salt();
+		this.mail.source = new Source();
 	}
 
-	public override void SetAdditives()
+	public override void SetContext()
 	{
-		// не используется
+		this.mail.context = new Context();
 	}
 }
-// строитель для пшеничного хлеба
-class WheatBreadBuilder : BreadBuilder
+
+class GetMailBuilder : MailBuilder
 {
-	public override void SetFlour()
+	public override void SetTitle()
 	{
-		this.Bread.Flour = new Flour { Sort = "Пшеничная мука высший сорт" };
+		this.mail.title = new Title { titleName = "Заказ сформтироват" };
 	}
 
-	public override void SetSalt()
+	public override void SetSource()
 	{
-		this.Bread.Salt = new Salt();
+		this.mail.source = new Source { sourceValue = "ООО Нефть" }; ;
 	}
 
-	public override void SetAdditives()
+	public override void SetContext()
 	{
-		this.Bread.Additives = new Additives { Name = "улучшитель хлебопекарный" };
+		this.mail.context = new Context { contextValue = "Товар на складе" }; ;
+	}
+}
+
+class SpamMailBuilder : MailBuilder
+{
+	public override void SetTitle()
+	{
+		this.mail.title = new Title { titleName = "Новые акции для Вас" };
+	}
+
+	public override void SetSource()
+	{
+		this.mail.source = new Source { sourceValue = "ООО ОЗОН" }; ;
+	}
+
+	public override void SetContext()
+	{
+		this.mail.context = new Context { contextValue = "Товар по низкой цене. ТВ за 5000 руб" }; ;
 	}
 }
