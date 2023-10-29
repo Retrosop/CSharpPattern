@@ -63,3 +63,6 @@
 /CreatePatterns/Builder/.vs
 /CreatePatterns/Builder/bin
 /CreatePatterns/Builder/obj
+/EventPatterns/Observer/.vs
+/EventPatterns/Observer/bin
+/EventPatterns/Observer/obj
