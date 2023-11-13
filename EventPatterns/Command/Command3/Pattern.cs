@@ -35,47 +35,12 @@ class TVOnCommand : ICommand
 	}
 }
 
-// Invoker - инициатор
-//class Pult
-//{
-//	ICommand command;
-
-//	public Pult() { }
-
-//	public void SetCommand(ICommand com)
-//	{
-//		command = com;
-//	}
-
-//	public void PressButton()
-//	{
-//		if (command != null)
-//			command.Execute();
-//	}
-//	public void PressUndo()
-//	{
-//		if (command != null)
-//			command.Undo();
-//	}
-//}
-
-class NoCommand : ICommand
-{
-	public void Execute()
-	{
-	}
-	public void Undo()
-	{
-	}
-}
+//Invoker - инициатор
 class Pult
 {
 	ICommand command;
 
-	public Pult()
-	{
-		command = new NoCommand();
-	}
+	public Pult() { }
 
 	public void SetCommand(ICommand com)
 	{
@@ -84,11 +49,13 @@ class Pult
 
 	public void PressButton()
 	{
-		command.Execute();
+		if (command != null)
+			command.Execute();
 	}
 	public void PressUndo()
 	{
-		command.Undo();
+		if (command != null)
+			command.Undo();
 	}
 }
 

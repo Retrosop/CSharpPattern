@@ -4,7 +4,7 @@
 	{
 		Pult pult = new Pult();
 		TV tv = new TV();
-		pult.SetCommand(new TVOnCommand(tv));
+		//pult.SetCommand(new TVOnCommand(tv));
 		pult.PressButton();
 		pult.PressUndo();
 
